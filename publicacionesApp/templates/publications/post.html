@@ -1,0 +1,71 @@
+{% extends 'inicio/index.html' %}
+{% load static %}
+{% block title %} publicaciones {% endblock title %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>{{detalles.titulo }}</h2>
+          <ol>
+            <li><a href="{% url 'inicio:index-principal' %}">Home</a></li>
+            <li>Publications Details</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="swiper-slide">
+                  <img src="{{detalles.imagen}}" alt="">
+                </div>
+
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project information</h3>
+              <ul>
+                
+                <li><strong>Title</strong>: {{detalles.titulo}}</li>
+                <li><strong>Category</strong>: {{detalles.categoria}}</li>
+                <li><strong>slug</strong>: {{detalles.slug}}</li>
+                <li><strong>description</strong>: {{detalles.descripcion}}</li>
+                <li><strong>Autor</strong>: <a href="{% url 'blog:detalles-autor' detalles.autor.id %}">{{detalles.autor}}</a></li>
+                <li><strong>Project URL</strong>: <a href="#">crear un  dato par git</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>{{detalles.titulo}}</h2>
+              <p>
+                {{detalles.content| safe}}
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  {% endblock body %}

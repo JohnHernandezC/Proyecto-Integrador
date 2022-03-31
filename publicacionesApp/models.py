@@ -18,6 +18,7 @@ class Categoria (models.Model):
 class Autor (models.Model):
     nombres = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
+    foto= models.URLField(max_length=300, default='null')
     paginaW = models.URLField(null=True, blank=True)
     email= models.EmailField(default=None)
     estado= models.BooleanField(default=True)
