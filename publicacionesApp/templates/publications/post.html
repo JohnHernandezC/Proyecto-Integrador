@@ -38,6 +38,32 @@
               </div>
               <div class="swiper-pagination"></div>
             </div>
+
+
+            <section id="about-boxes" class="about-boxes">
+              <div class="container" data-aos="fade-up">
+        
+                <div class="row">
+            {% for x in recomendaciones %}
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+              <div class="card">
+                <img src="{{x.imagen}}" class="card-img-top" alt="...">
+                <div class="card-icon">
+                  <img src="{{fotos.foto}}" border-radius="50"  width="50"   alt="">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">{{x.titulo}}</a></h5>
+                  <p class="card-text">{{x.descripcion}} </p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+
+        </div>
+      </section>
+
           </div>
 
           <div class="col-lg-4">

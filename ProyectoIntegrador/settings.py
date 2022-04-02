@@ -42,9 +42,12 @@ INSTALLED_APPS = [
     'ckeditor',
     'principalApp',
     'publicacionesApp',
+    'UsuariosApp',
 ]
 
 MIDDLEWARE = [
+    # 'querycount.middleware.QueryCountMiddleware',
+    # 'UsuariosApp.middleware.PruebaMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -111,6 +114,8 @@ CKEDITOR_CONFIGS = {#parte de la configuracion de ckeditor (despliega todas las 
         #'width': 300,
     },
 }
+
+AUTH_USER_MODEL = 'UsuariosApp.Usuario'
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -134,10 +139,10 @@ MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 STATICFILES_DIR = (os.path.join(BASE_DIR, 'static'),)#DEFINIMOS LA DIRECCION DONDE ESTARAN LOS ARCHIVOS ESTATICOS
 VENV_PATH = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join(VENV_PATH, 'static_root')
-# STATICFILES_DIRS = [
-#     BASE_DIR / "static",
-#     '/var/www/static/',
-#     ]
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    
+    ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

@@ -1449,3 +1449,8 @@ section {
 #footer .credits a {
   transition: 0.3s;
 }
+.img-circle{
+  border-radius: 50%
+}
+
+
