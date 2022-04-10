@@ -14,9 +14,14 @@ class CategoriaAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     resources_class=CategoriaResource
 
 class AutorAdmin(admin.ModelAdmin):
-    list_display=('nombres','apellido','estado')
-    search_fields = ('nombres','apellido')
+    list_display=('id','nickname')
+    search_fields = ('id','nickname')
+    
+class ComentariosAdmin(admin.ModelAdmin):
+    list_display=('id','calificacion')
+    
 
 admin.site.register(Categoria,CategoriaAdmin)
 admin.site.register(Autor,AutorAdmin)
+admin.site.register(Comentarios,ComentariosAdmin)
 admin.site.register(Post)

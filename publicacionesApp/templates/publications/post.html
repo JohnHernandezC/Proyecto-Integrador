@@ -49,10 +49,10 @@
               <div class="card">
                 <img src="{{x.imagen}}" class="card-img-top" alt="...">
                 <div class="card-icon">
-                  <img src="{{fotos.foto}}" border-radius="50"  width="50"   alt="">
+                  <img src="{{x.autor.usuario.imagen.url}}" border-radius="50"  width="50"   alt="">
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title"><a href="">{{x.titulo}}</a></h5>
+                  <h5 class="card-title"><a href="{% url 'blog:detalles_post' x.id %}">{{x.titulo}}</a></h5>
                   <p class="card-text">{{x.descripcion}} </p>
                 </div>
               </div>

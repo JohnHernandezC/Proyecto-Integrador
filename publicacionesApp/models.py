@@ -1,5 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.core.validators import MinValueValidator,MaxValueValidator
+from UsuariosApp.models import Usuario
 
 
 class Categoria (models.Model):
@@ -15,11 +17,9 @@ class Categoria (models.Model):
     
     
 class Autor (models.Model):
-    nombres = models.CharField(max_length=100)
-    apellido = models.CharField(max_length=100)
-    foto= models.URLField(max_length=300, default='null')
+    nickname = models.CharField(max_length=50)
+    usuario=models.ForeignKey(Usuario, on_delete=models.CASCADE)
     paginaW = models.URLField(null=True, blank=True)
-    email= models.EmailField(default=None)
     estado= models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     
@@ -27,7 +27,7 @@ class Autor (models.Model):
         verbose_name = ('Autor')
         verbose_name_plural = ('Autores')
     def __str__(self):
-        return self.nombres   
+        return self.nickname  
 
 class Post (models.Model):
     titulo = models.CharField(max_length=100)
@@ -39,8 +39,20 @@ class Post (models.Model):
     categoria= models.ForeignKey(Categoria,on_delete=models.CASCADE)
     estado = models.BooleanField('Publicado/No publicado',default=True)
     created = models.DateTimeField(auto_now_add=True)
+    
     class Meta:
         verbose_name = ('Post')
         verbose_name_plural = ('Posts')
     def __str__(self):
         return self.titulo 
+
+
+class Comentarios (models.Model):
+    calificacion=models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)], default=True)
+    texto=models.CharField(max_length=250, null=True)
+    autor=models.ForeignKey(Autor, on_delete=models.CASCADE, related_name="comentarios")
+    active=models.BooleanField(default=True)
+    created=models.DateField(auto_now_add=True)  
+    update=models.DateField(auto_now_add=True) 
+    def __str__(self):
+        return str(self.calificacion)
