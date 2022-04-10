@@ -130,6 +130,13 @@ USE_TZ = True
 
 
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'aplicacionsalud1@gmail.com'
+EMAIL_HOST_PASSWORD = 'aplicacion123'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'aplicacionsalud1@gmail.com'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 

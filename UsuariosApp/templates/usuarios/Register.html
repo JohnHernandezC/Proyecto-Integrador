@@ -1,0 +1,25 @@
+{% extends 'inicio/index.html' %}
+
+
+{% block title %}listar{% endblock %}
+
+{% block body %}
+<section class="pb-5 position-relative bg-gradient-dark mx-n3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 text-start mb-5 mt-5">
+          <h3 class=" z-index-1 position-relative">The Executive Team</h3>
+          <p class=" opacity-8 mb-0">There’s nothing I really wanted to do in life that I wasn’t able to get good at. That’s my skill.</p>
+        </div>
+      </div>
+      
+<form method="POST" >
+    {% csrf_token %}
+    {{form.as_p}}<!--se cambio de autorForm a form para que la clase lo use -->
+    <!--{{autorForm.nombre.label}} para renderisar los labels y campos mostrados en froms-->
+    <!--{{autorForm.nombre}} para mostrar 1 por 1 los datos del modelo-->
+    <button type="submit">Create</button>
+    
+</form>
+
+{% endblock body %}
