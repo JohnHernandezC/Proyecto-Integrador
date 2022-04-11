@@ -3,23 +3,72 @@
 
 {% block title %}listar{% endblock %}
 
+{% block css %}
+
+{% endblock css %}
+
 {% block body %}
 <section class="pb-5 position-relative bg-gradient-dark mx-n3">
+  
+    <div class="abs-center">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 text-start mb-5 mt-5">
-          <h3 class=" z-index-1 position-relative">The Executive Team</h3>
-          <p class=" opacity-8 mb-0">There’s nothing I really wanted to do in life that I wasn’t able to get good at. That’s my skill.</p>
-        </div>
-      </div>
-      
-<form method="POST" >
+        
+    </div>
+  </section>
+    
+<form method="POST"   >
     {% csrf_token %}
-    {{form.as_p}}<!--se cambio de autorForm a form para que la clase lo use -->
-    <!--{{autorForm.nombre.label}} para renderisar los labels y campos mostrados en froms-->
-    <!--{{autorForm.nombre}} para mostrar 1 por 1 los datos del modelo-->
-    <button type="submit">Create</button>
+
+
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up"">
+    
+    <div class=" section-title">
+        <h2>registro</h2>
+        <p>Registrate, es GRATIS</p>
+      </div>
+      <div class="abs-center"></div>
+      <div class="row">
+        <div class="col-lg-6 mt-4 mt-lg-0">
+          
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <label class="form-label">Nombres:  </label>
+                <p>{{form.nombres}} </p> 
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <label class="form-label">Apellidos:  </label>
+                 <p> {{form.apellidos}} </p>
+              </div>
+            </div>
+            <div class="col-md-6 form-group">
+              <label class="form-label">Usuario:  </label>
+              <p> {{form.username}} </p>
+            </div>
+            <div class="col-md-6 form-group mt-3 mt-md-0">
+              <label class="form-label">Email:  </label>
+              <p> {{form.email}} </p>
+            </div>
+            <div class="col-md-6 form-group mt-3 mt-md-0">
+              <label class="form-label">Ingrese su contraseña  </label>
+              <p> {{form.password1}} </p>
+            </div>
+            <div class="col-md-6 form-group mt-3 mt-md-0">
+              <label class="form-label">Ingrese su contraseña nuevamente:  </label>
+              <p> {{form.password2}} </p>
+            </div>
+            <div class="text-center"><button type="submit" class="btn btn-primary" >Create</button> </div>
+          
+        </div>
+
+      </div>
+    </div>
+      </div>
+    </section>
     
 </form>
 
+
 {% endblock body %}
+

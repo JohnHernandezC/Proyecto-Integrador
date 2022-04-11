@@ -21,6 +21,7 @@ urlpatterns = [
     path('', include(('principalApp.urls','inicio'))),
     path('post/', include(('publicacionesApp.urls','blog'))),
     path('usuario/', include(('UsuariosApp.urls','usuarios'))),
+    path('formulario/', include(('FormularioApp.urls','formularios'))),
     
 ]
 

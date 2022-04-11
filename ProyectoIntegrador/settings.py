@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'principalApp',
     'publicacionesApp',
     'UsuariosApp',
+    'FormularioApp',
 ]
 
 MIDDLEWARE = [
@@ -150,6 +151,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     
     ]
+LOGIN_REDIRECT_URL = 'inicio:index-principal'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
