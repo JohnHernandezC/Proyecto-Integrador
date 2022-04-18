@@ -8,6 +8,7 @@ urlpatterns = [
     path('crearU/',registrarUsuario.as_view(),name='crear-User'),
     path('login/',LoginView.as_view(template_name='usuarios/login.html'), name='login'),
     path('logout/',LogoutView.as_view(template_name='inicio/index.html'), name='logout'),
+    path('editarU/<int:pk>',ActualizarUsuario.as_view(),name='editarUsuario'),
   
 ]
 

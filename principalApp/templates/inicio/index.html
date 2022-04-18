@@ -65,12 +65,7 @@
 
     {% endblock css %}
 
-    <!-- =======================================================
-  * Template Name: Dewi - v4.7.0
-  * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+
   </head>
 
   <body>
@@ -139,26 +134,29 @@
     <main id="main">
       <!-- -------- START Features w/ pattern background & stats & rocket -------- -->
       {% block body %}
-       <section class="pb-5 position-relative bg-gradient-dark mx-n3">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 text-start mb-5 mt-5">
-              <h3 class="text-white z-index-1 position-relative">The Executive Team</h3>
-              <p class="text-white opacity-8 mb-0">There’s nothing I really wanted to do in life that I wasn’t able to get good at. That’s my skill.</p>
-            </div>
+      <section id="hero">
+    
+        <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
+          <h1>E-KNOWLEDGE</h1>
+          <h2>preparate para tu futuro</h2>
+          {% if request.user.is_authenticated %}
+            <div class="d-flex">
+            <li>
+              
+            </li>
+            <a href="https://www.youtube.com/watch?v=62uvMUmzUnk&ab_channel=STAC10N" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
-          <div class="row">
-            <div class="col-lg-6 col-12">
-              <div class="card card-profile mt-4">
-                <div class="row">
-                  
-                  <h1>NADA AQUI AUN</h1>
-                </div>
-              </div>
-            </div>
-            
-      </section> 
-
+            {% else %}
+            <div class="d-flex">
+            <li>
+              <a class="btn-get-started scrollto" href="{% url 'usuarios:login' %}">Inicia sesión</a>
+            </li>
+            <a href="https://www.youtube.com/watch?v=62uvMUmzUnk&ab_channel=STAC10N" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
+            {% endif %}
+        </div>
+        
+      </section><!-- End Hero -->
       
       {% endblock body %}
       <!-- -------- END Features w/ pattern background & stats & rocket -------- -->

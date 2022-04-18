@@ -8,6 +8,8 @@ urlpatterns = [
     path('',home,name='general-post'),
     path('<int:id>/',detalles,name='detalles_post'),
     path('autor/<int:id>',autor,name='detalles-autor'),
+    path('crear/',crearPost,name='crear-post'),
+    
 ]
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -17,24 +17,27 @@ class Categoria (models.Model):
     
     
 class Autor (models.Model):
-    nickname = models.CharField(max_length=50)
-    usuario=models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    nickname = models.CharField(max_length=50,null=True, blank = True)
+    usuario=models.OneToOneField(Usuario, on_delete=models.CASCADE)
     paginaW = models.URLField(null=True, blank=True)
-    estado= models.BooleanField(default=True)
+    estudios= models.CharField(max_length=500,null=True, blank = True)
+    universidad= models.CharField(max_length=50,null=True, blank = True)
+    conocimientos= models.CharField(max_length=500,null=True, blank = True)
+    estado= models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     
     class Meta:
         verbose_name = ('Autor')
         verbose_name_plural = ('Autores')
     def __str__(self):
-        return self.nickname  
+        return self.usuario.username
 
 class Post (models.Model):
     titulo = models.CharField(max_length=100)
     slug= models.CharField(max_length=100)
     descripcion = models.CharField(max_length=100)
     content = RichTextField(default=None)
-    imagen= models.URLField(max_length=300)
+    imagen = models.URLField('Imagen de Perfil', max_length=200)
     autor= models.ForeignKey(Autor,on_delete=models.CASCADE)
     categoria= models.ForeignKey(Categoria,on_delete=models.CASCADE)
     estado = models.BooleanField('Publicado/No publicado',default=True)

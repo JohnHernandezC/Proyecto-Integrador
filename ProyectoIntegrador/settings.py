@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'principalApp',
     'publicacionesApp',
-    'UsuariosApp',
+    'UsuariosApp.apps.UsuariosappConfig',
     'FormularioApp',
 ]
 

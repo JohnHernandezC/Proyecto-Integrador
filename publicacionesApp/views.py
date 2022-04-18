@@ -1,5 +1,7 @@
-from django.shortcuts import get_object_or_404, render
+from django.contrib import messages
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import *
+from . forms import PublicacionForm
 
 def home (request):
     post=Post.objects.filter(estado=True)
@@ -23,3 +25,26 @@ def autor (request,id):
                               autor=Autor.objects.get(id=id))
     
     return render(request,'publications\perfilAutor.html',{'autor':autor, 'post':post})
+
+def crearPost (request):
+    courrent_user=get_object_or_404(Autor,pk=request.user.pk)
+    print("////////////////////////////////////////")
+    x=request.session.get('_auth_user_id')
+    print(courrent_user)
+    if request.method == 'POST':
+        forms1=PublicacionForm(request.POST)#obtener la informacion que esta contenida en el metodo POST 
+        print(forms1)
+        #de ls vista nuevo
+        if forms1.is_valid():#validar si el formulario es valido
+            post=forms1.save(commit=False)
+            post.autor=courrent_user
+            post.save()
+            messages.success(request,'Post creado con exito')
+            return redirect('inicio:index-principal')
+        
+    else:
+        form=PublicacionForm()
+    return render(request, 'publications/crearPublicaciones.html',{'formaPersona':form})
+
+    
+    

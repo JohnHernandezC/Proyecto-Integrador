@@ -14,7 +14,7 @@ class CategoriaAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     resources_class=CategoriaResource
 
 class AutorAdmin(admin.ModelAdmin):
-    list_display=('id','nickname')
+    
     search_fields = ('id','nickname')
     
 class ComentariosAdmin(admin.ModelAdmin):
