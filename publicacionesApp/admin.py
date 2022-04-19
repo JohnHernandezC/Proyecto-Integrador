@@ -17,11 +17,10 @@ class AutorAdmin(admin.ModelAdmin):
     
     search_fields = ('id','nickname')
     
-class ComentariosAdmin(admin.ModelAdmin):
-    list_display=('id','calificacion')
+
     
 
 admin.site.register(Categoria,CategoriaAdmin)
 admin.site.register(Autor,AutorAdmin)
-admin.site.register(Comentarios,ComentariosAdmin)
+
 admin.site.register(Post)

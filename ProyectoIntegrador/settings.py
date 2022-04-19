@@ -40,10 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'import_export',
     'ckeditor',
+    'rest_framework',
     'principalApp',
     'publicacionesApp',
     'UsuariosApp.apps.UsuariosappConfig',
     'FormularioApp',
+    'pagosApp.apps.PagosappConfig',
+    'comentariosApp',
+
+    
 ]
 
 MIDDLEWARE = [
@@ -157,3 +162,5 @@ LOGIN_REDIRECT_URL = 'inicio:index-principal'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
