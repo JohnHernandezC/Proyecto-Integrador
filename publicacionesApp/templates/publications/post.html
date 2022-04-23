@@ -1,6 +1,27 @@
 {% extends 'inicio/index.html' %}
 {% load static %}
 {% block title %} publicaciones {% endblock title %}
+{% block header %}
+<script>
+  function token(name) {
+  var cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+          }
+      }
+  }
+  return cookieValue;
+}
+var csrftoken = token('csrftoken');
+  </script>
+  {% endblock header %}
+
 
 {% block body %}
 <main id="main">
@@ -13,8 +34,9 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>{{detalles.titulo }}</h2>
           <ol>
-            <li><a href="{% url 'inicio:index-principal' %}">Home</a></li>
-            <li>Publications Details</li>
+            
+            <li><a class="btn btn-danger " href="{% url 'chats-index:chats' %}">Ponte en contacto</a></li>
+            
           </ol>
         </div>
 
@@ -44,6 +66,8 @@
                   {{detalles.content| safe}}
                 </p>
               </div>
+              
+                
               <div class="swiper-pagination"></div>
             </div>
 
@@ -67,6 +91,8 @@
             </div>
             {% endfor %}
 
+            
+
           </div>
 
         </div>
@@ -85,37 +111,43 @@
                 <li><strong>description</strong>: {{detalles.descripcion}}</li>
                 <li><strong>Autor</strong>: <a href="{% url 'blog:detalles-autor' detalles.autor.id %}">{{detalles.autor}}</a></li>
                 <li><strong>Project URL</strong>: <a href="#">crear un  dato par git</a></li>
-                <li><!-- Replace "test" with your own sandbox Business account app client ID -->
+                <li></li>
+                <li><div id="paypal-button-container"></div>
+
                   <script src="https://www.paypal.com/sdk/js?client-id=Af6Xi9WXzy-aPWSKygyMggcqCk8aEzo-COV2FmnD_SYV0nxjeutJ-7azGumtFLxwb4JVlHN-RGuQIK-4"></script>
-                  <!-- Set up a container element for the button -->
-                  <div id="paypal-button-container"></div>
+                  </script>
+              
                   <script>
-                    paypal.Buttons({
-                      // Sets up the transaction when a payment button is clicked
-                      createOrder: (data, actions) => {
-                        return actions.order.create({
-                          purchase_units: [{
-                            amount: {
-                              value: '77.44' // Can also reference a variable or function
-                            }
-                          }]
-                        });
-                      },
-                      // Finalize the transaction after payer approval
-                      onApprove: (data, actions) => {
-                        return actions.order.capture().then(function(orderData) {
-                          // Successful capture! For dev/demo purposes:
-                          console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                          const transaction = orderData.purchase_units[0].payments.captures[0];
-                          alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
-                          // When ready to go live, remove the alert and show a success message within this page. For example:
-                          // const element = document.getElementById('paypal-button-container');
-                          // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-                          // Or go to another URL:  actions.redirect('thank_you.html');
-                        });
-                      }
-                    }).render('#paypal-button-container');
-                  </script></li>
+                      paypal.Buttons({
+                        createOrder: function(data, actions) {
+                          // This function sets up the details of the transaction, including the amount and line item details.
+                          return actions.order.create({
+                            purchase_units: [{
+                              amount: {
+                                value: '100.00'
+                              }
+                            }]
+                          });
+                        },
+                        onApprove: function(data) {
+                          return fetch('/pago/', {
+                              method: 'POST',
+                              headers: {
+                              'content-type': 'application/json',
+                              'X-CSRFToken': csrftoken,
+                              },
+                              body: JSON.stringify({
+                              orderID: data.orderID
+                              })
+                          }).then(function(res) {
+                              return res.json();
+                          }).then(function(details) {
+                              alert(details.mensaje);
+                          })
+                        }
+                      }).render('#paypal-button-container');
+                      //This function displays Smart Payment Buttons on your web page.
+                    </script></li>
               </ul>
             </div>
             

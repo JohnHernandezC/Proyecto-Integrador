@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
+from django.urls import reverse_lazy
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,13 +42,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'import_export',
     'ckeditor',
+    'paypalcheckoutsdk',
     'rest_framework',
+    'widget_tweaks',
     'principalApp',
     'publicacionesApp',
     'UsuariosApp.apps.UsuariosappConfig',
     'FormularioApp',
     'pagosApp.apps.PagosappConfig',
     'comentariosApp',
+    'chatApp',
 
     
 ]
@@ -156,7 +161,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     
     ]
-LOGIN_REDIRECT_URL = 'inicio:index-principal'
+LOGIN_REDIRECT_URL = reverse_lazy('login')
+LOGOUT_REDIRECT_URL = reverse_lazy('logout')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

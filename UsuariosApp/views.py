@@ -2,6 +2,8 @@ from django.views.generic import CreateView,UpdateView
 from .models import  Usuario
 from .forms import  FormularioUsuario
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+
 
 class registrarUsuario(CreateView):
     model= Usuario

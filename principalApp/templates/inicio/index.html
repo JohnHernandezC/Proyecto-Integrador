@@ -9,6 +9,10 @@
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
+    {% block header %}
+
+    {% endblock header %}
+
     <!-- Favicons -->
     <link href="{% static 'assets/img/favicon.png' %}" rel="icon" />
     <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon" />
@@ -61,9 +65,8 @@
     <!-- Template Main CSS File -->
     <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" />
 
-    {% block css %}
-
-    {% endblock css %}
+    
+    
 
 
   </head>
@@ -112,11 +115,11 @@
             <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
             {% if request.user.is_authenticated %}
             <li>
-              <a class="getstarted scrollto" href="{% url 'usuarios:logout' %}">Cerrar sesión</a>
+              <a class="getstarted scrollto" href="{% url 'logout' %}">Cerrar sesión</a>
             </li>
             {% else %}
             <li>
-              <a class="getstarted scrollto" href="{% url 'usuarios:login' %}">Inicia sesión</a>
+              <a class="getstarted scrollto" href="{% url 'login' %}">Inicia sesión</a>
             </li>
             {% endif %}
 
@@ -149,7 +152,7 @@
             {% else %}
             <div class="d-flex">
             <li>
-              <a class="btn-get-started scrollto" href="{% url 'usuarios:login' %}">Inicia sesión</a>
+              <a class="btn-get-started scrollto" href="{% url 'login' %}">Inicia sesión</a>
             </li>
             <a href="https://www.youtube.com/watch?v=62uvMUmzUnk&ab_channel=STAC10N" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>

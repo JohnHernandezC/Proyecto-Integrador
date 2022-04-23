@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,8 +23,11 @@ urlpatterns = [
     path('post/', include(('publicacionesApp.urls','blog'))),
     path('usuario/', include(('UsuariosApp.urls','usuarios'))),
     path('formulario/', include(('FormularioApp.urls','formularios'))),
-    path('pagoApp/', include('pagosApp.urls')),
+    path('', include('pagosApp.urls')),
     path('comentarios/', include('comentariosApp.api.urls')),
+    path('accounts/login/',LoginView.as_view(template_name='usuarios/login.html'), name='login'),
+    path('accounts/logout/',LogoutView.as_view(template_name='inicio/index.html'), name='logout'),
+    path('', include(('chatApp.urls','chats-index'))),
     
 ]
 

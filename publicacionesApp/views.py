@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import *
 from . forms import PublicacionForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def home (request):
     post=Post.objects.filter(estado=True)
@@ -19,6 +20,7 @@ def detalles (request,id):
 
 
 def autor (request,id):
+    
     autor=get_object_or_404(Autor,pk=id)
     
     post=Post.objects.filter(estado=True, 
