@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from .models import *
 from . forms import PublicacionForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import ObjectDoesNotExist
 
 def home (request):
     post=Post.objects.filter(estado=True)
@@ -33,11 +34,12 @@ def crearPost (request):
     print("////////////////////////////////////////")
     x=request.session.get('_auth_user_id')
     print(courrent_user)
+    print(x)
     if request.method == 'POST':
-        forms1=PublicacionForm(request.POST)#obtener la informacion que esta contenida en el metodo POST 
+        forms1=PublicacionForm(request.POST,request.FILES)#obtener la informacion que esta contenida en el metodo POST 
         print(forms1)
         #de ls vista nuevo
-        if forms1.is_valid():#validar si el formulario es valido
+        if forms1.is_valid():
             post=forms1.save(commit=False)
             post.autor=courrent_user
             post.save()
@@ -47,6 +49,43 @@ def crearPost (request):
     else:
         form=PublicacionForm()
     return render(request, 'publications/crearPublicaciones.html',{'formaPersona':form})
+
+def listarMisPost (request):
+    x=request.session.get('_auth_user_id')
+    lpost=Post.objects.filter(autor=x)
+    print(lpost)
+    return render(request,'publications\listarMisPost.html',{'post':lpost})
+
+def editarPost (request,id):
+    form=None
+    error=None
+    try:
+        postE=Post.objects.get(id=id)# solo trae un objeto filtrado por la variable que le pasamos
+        if request.method=='GET':
+            form=PublicacionForm(instance=postE)
+        else:
+            form=PublicacionForm(request.POST, instance=postE)
+            if form.is_valid(): 
+                form.save()
+                return redirect('blog:listar-post')
+    except ObjectDoesNotExist as e:
+        error=e
+        
+    return render(request,'publications/crearPublicaciones.html',{'formaPersona':form,'error':error})
+
+def eliminarPost (request,id):
+    posts=Post.objects.get(id=id)
+    if request.method=='POST':
+        #eliminacion logica
+        #post.estado=false
+        #post.save() 
+        posts.delete()
+        return redirect('blog:listar-post')
+    return render(request,'publications/eliminarPost.html',{'post':posts})
+
+
+
+    
 
     
     

@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +28,10 @@ urlpatterns = [
     path('comentarios/', include('comentariosApp.api.urls')),
     path('accounts/login/',LoginView.as_view(template_name='usuarios/login.html'), name='login'),
     path('accounts/logout/',LogoutView.as_view(template_name='inicio/index.html'), name='logout'),
+    path('reset_password/', auth_views.PasswordResetView.as_view(template_name='autenticacion/password-reset.html'), name='password_reset'),
+    path('reset_password_send/', auth_views.PasswordResetDoneView.as_view(template_name='autenticacion/reset_done.html'),name='password_reset_done'),
+    path('reset/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(template_name='autenticacion/reset_Confirm.html'),name='password_reset_confirm'),
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name='autenticacion/reset_Complete.html'),name='password_reset_complete'),
     path('', include(('chatApp.urls','chats-index'))),
     
 ]

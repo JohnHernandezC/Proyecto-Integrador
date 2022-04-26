@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'pagosApp.apps.PagosappConfig',
     'comentariosApp',
     'chatApp',
+    'autenticacionApp',
 
     
 ]
@@ -162,11 +163,19 @@ STATICFILES_DIRS = [
     
     ]
 LOGIN_REDIRECT_URL = reverse_lazy('login')
-LOGOUT_REDIRECT_URL = reverse_lazy('logout')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#Email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST ="smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT =587
+EMAIL_HOST_USER="aplicacionsalud1@gmail.com"
+EMAIL_HOST_PASSWORD="aplicacion123"
+
 
 

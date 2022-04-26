@@ -1,0 +1,30 @@
+{% extends 'inicio/index.html' %}
+{% load static %}
+{% block title %}  NUeva contraseña {% endblock title %}
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Ingrese las contraseñas</h1>
+<form method="POST" >
+    {% csrf_token %}
+        <ul>
+            <li>{{form.new_password1}}</li>
+            <li>{{form.new_password2}}</li>
+        
+          </ul>
+   
+    
+    
+    <input type="submit" name="send email" class="btn btn-danger">
+    
+    </form>
+<br>
+<br>
+<br>
+<br>
+
+
+{% endblock body %}

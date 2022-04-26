@@ -54,7 +54,7 @@ class Usuario(AbstractBaseUser):
     nombres = models.CharField('Nombres', max_length=200, blank = True, null = True)
     apellidos = models.CharField('Apellidos', max_length=200,blank = True, null = True)
     imagen = models.ImageField('Imagen de Perfil', max_length=200,blank = True,null = True)
-    usuario_activo = models.BooleanField(default = True)
+    is_active = models.BooleanField(default = True)
     usuario_admin  = models.BooleanField(default = False)
   
     objects = UsuarioManager()

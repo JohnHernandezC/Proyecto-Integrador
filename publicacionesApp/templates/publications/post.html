@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %} publicaciones {% endblock title %}
 {% block header %}
+
 <script>
   function token(name) {
   var cookieValue = null;
@@ -9,7 +10,6 @@
       var cookies = document.cookie.split(';');
       for (var i = 0; i < cookies.length; i++) {
           var cookie = cookies[i].trim();
-          // Does this cookie string begin with the name we want?
           if (cookie.substring(0, name.length + 1) === (name + '=')) {
               cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
               break;
@@ -54,7 +54,7 @@ var csrftoken = token('csrftoken');
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="{{detalles.imagen}}" alt="">
+                  <img src="{{detalles.imagen.url}}" alt="">
                 </div>
                 
 
@@ -79,7 +79,7 @@ var csrftoken = token('csrftoken');
             {% for x in recomendaciones %}
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
               <div class="card">
-                <img src="{{x.imagen}}" class="card-img-top" alt="...">
+                <img src="{{x.imagen.url}}" class="card-img-top" alt="...">
                 <div class="card-icon">
                   <img src="{{x.autor.usuario.imagen.url}}" border-radius="50"  width="50"   alt="">
                 </div>
