@@ -1,0 +1,16 @@
+{% extends 'inicio/index.html' %} {% load static %} {% block title %}
+publicaciones {% endblock title %} {% block body %} {% if error %}
+<h1>{{ error }}</h1>
+{% else %}
+<div class="row">
+  <div class="col-md-8 text-start mb-5 mt-5"></div>
+</div>
+<form method="POST" enctype="multipart/form-data">
+  <!--para que los datos no se visualicen al ser enviados por  medio de la url-->
+  <table>
+    {{formaPersona | safe}}
+  </table>
+  <button type="submit">Aceptar</button>
+  {% csrf_token %}
+</form>
+{% endif %} {% endblock body %}

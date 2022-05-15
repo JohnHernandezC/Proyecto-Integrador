@@ -1,6 +1,7 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
+
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -81,31 +82,53 @@
 
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a class="nav-link scrollto" href="{% url 'inicio:index-principal' %}">Home</a></li>
-            <li><a class="nav-link scrollto" href="#about">About</a></li>
-            <li><a class="nav-link scrollto" href="{% url 'blog:general-post' %}">Services</a></li>
-            <li>
-              <a class="nav-link scrollto" href="#portfolio">Portfolio</a>
-            </li>
-            <li><a class="nav-link scrollto" href="#team">Team</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'inicio:index-principal' %}">{% trans 'Inicio' %}</a>
+            
+            <li><a class="nav-link scrollto" href="{% url 'blog:general-post' %}">{% trans 'Servicios' %}</a></li>
+          
+            
+            
+            <li><a class="nav-link scrollto" href="{% url 'contactanos:contacto-all'%}">{% trans 'Contactanos' %}</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'contactanos:acerca-all'%}">{% trans 'Acerca' %}</a></li>
+            {% if request.user.is_authenticated %}
             <li class="dropdown">
               <a href="#"
-                ><span>MIS POST</span> <i class="bi bi-chevron-down"></i
+                ><span>{% trans 'Mi Perfil' %}</span> <i class="bi bi-chevron-down"></i
               ></a>
+              
               <ul>
-                <li><a href="{% url 'blog:crear-post' %}">Crear post</a></li>
-                <li><a href="{% url 'blog:listar-post' %}">Listar post</a></li>
+                <li class="dropdown"><a href="#"><span>{% trans 'Mi perfil' %}</span> <i class="bi bi-chevron-right"></i></a>
+                  <ul>
+                    <li><a href="{% url 'usuarios:editarUsuario' request.user.id %}">{% trans 'Editar tu perfil' %}</a></li>
+                    <li><a href="#">Deep Drop Down 2</a></li>
+                    
+                  </ul>
+                </li>
+                {% if request.user.is_userp %}
+                <li class="dropdown"><a href="#"><span>{% trans 'Mis publicaciones' %}</span> <i class="bi bi-chevron-right"></i></a>
+                  <ul>
+                    <li><a href="{% url 'blog:listar-post' %}">{% trans 'Listar post' %}</a></li>
+                    <li><a href="{% url 'blog:crear-post' %}">{% trans 'Crear post' %}</a></li>
+                    <li><a href="{% url 'blog:listar-Solicitudes' %}">{% trans 'Solicitudes' %}</a></li>
+                    
+                  </ul>
+                </li>
+                {% else %}
+                <li class="dropdown"><a href="#"><span>{% trans 'Conviertete en vendedor' %}</span> <i class="bi bi-chevron-right"></i></a>
+                {% endif %}
+                
                
               </ul>
             </li>
-            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+            {% else %}
+            {% endif %}
             {% if request.user.is_authenticated %}
             <li>
-              <a class="getstarted scrollto" href="{% url 'logout' %}">Cerrar sesión</a>
+              <a class="getstarted scrollto" href="{% url 'logout' %}">{% trans 'Cerrar sesión' %}</a>
             </li>
             {% else %}
             <li>
-              <a class="getstarted scrollto" href="{% url 'login' %}">Inicia sesión</a>
+              <a class="getstarted scrollto" href="{% url 'login' %}">{% trans 'Inicia sesión' %}</a>
             </li>
             {% endif %}
 
@@ -123,11 +146,12 @@
     <main id="main">
       <!-- -------- START Features w/ pattern background & stats & rocket -------- -->
       {% block body %}
+      
       <section id="hero">
     
         <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
           <h1>E-KNOWLEDGE</h1>
-          <h2>preparate para tu futuro</h2>
+          <h2>{% trans 'preparate para tu futuro' %}</h2>
           {% if request.user.is_authenticated %}
             <div class="d-flex">
             <li>
@@ -138,7 +162,7 @@
             {% else %}
             <div class="d-flex">
             <li>
-              <a class="btn-get-started scrollto" href="{% url 'login' %}">Inicia sesión</a>
+              <a class="btn-get-started scrollto" href="{% url 'login' %}">{% trans 'Inicia sesión' %}</a>
             </li>
             <a href="https://www.youtube.com/watch?v=62uvMUmzUnk&ab_channel=STAC10N" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
@@ -161,8 +185,8 @@
               <div class="footer-info">
                 <h3>E-knowledge</h3>
                 <p>
-                  A108 Adam Street <br />
-                  NY 535022, USA<br /><br />
+                  {% trans 'Universidad de Cundinamarca' %} <br />
+                  {% trans 'Facatativa' %}<br /><br />
                   
                 </p>
                 <div class="social-links mt-3">
@@ -186,22 +210,22 @@
             <div class="col-lg-2 col-md-6 footer-links">
               <p>
                
-                <strong>Phone:</strong> +1 5589 55488 55<br />
-                <strong>Email:</strong> info@example.com<br />
+                <strong>{% trans 'Telefono:' %}</strong> +1 5589 55488 55<br />
+                <strong>{% trans 'Correo:' %}</strong> info@example.com<br />
               </p>
               
             </div>
 
             <div class="col-lg-3 col-md-6 footer-links">
-              <h4>Useful Links</h4>
+              <h4>Links</h4>
               <ul>
                 <li>
-                  <i class="bx bx-chevron-right"></i> <a href="#">Home</a>
+                  <i class="bx bx-chevron-right"></i> <a href="#">{% trans 'Inicio' %}</a>
                 </li>
                 
                 <li>
                   <i class="bx bx-chevron-right"></i>
-                  <a href="#">Privacy policy</a>
+                  <a href="#">{% trans 'Politicas Privacidad' %}</a>
                 </li>
               </ul>
             </div>
@@ -219,9 +243,22 @@
           </div>
         </div>
       </div>
-
+<!--j------------------------->
       
-          
+<form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+  <input name="next" type="hidden" value="{{ redirect_to }}" />
+  <select name="language">
+      {% get_current_language as LANGUAGE_CODE %}
+      {% get_available_languages as LANGUAGES %}
+      {% get_language_info_list for LANGUAGES as languages %}
+      {% for language in languages %}
+          <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+              {{ language.name_local }} ({{ language.code }})
+          </option>
+      {% endfor %}
+  </select>
+  <input type="submit" value="Go" />
+</form>  
         </div>
       </div>
     </footer>

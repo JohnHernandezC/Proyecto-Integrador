@@ -14,9 +14,11 @@ from django.shortcuts import get_object_or_404
 class ComentarioCreate (generics.CreateAPIView ):
     serializer_class = ComentarioSerializer
     def perform_create(self, serializer):
+        pk2=self.kwargs['pk2']
+        autor=Autor.objects.get(pk=pk2)
         pk=self.kwargs['pk']
-        autor=Autor.objects.get(pk=pk)
-        serializer.save(autores=autor)
+        publicacionn=pk
+        serializer.save(autores=autor,publicacion=publicacionn)
     
 class ComentarioLis(generics.ListCreateAPIView ):
     #queryset = Comentarios. objects. all()

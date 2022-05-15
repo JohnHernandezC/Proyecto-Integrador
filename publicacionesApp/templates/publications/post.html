@@ -35,9 +35,13 @@ var csrftoken = token('csrftoken');
           <h2>{{detalles.titulo }}</h2>
           <ol>
             
-            <li><a class="btn btn-danger " href="{% url 'chats-index:chats' %}">Ponte en contacto</a></li>
-            
+            <li><a class="btn btn-danger " href="{% url 'chats-index:chat' request.user.id detalles.autor.id %}">Ponte en contacto</a></li>
+             <li>
+                      
+              <p>Total: {{importe_total_carro}}</p>
+            </li>
           </ol>
+          
         </div>
 
       </div>
@@ -66,7 +70,56 @@ var csrftoken = token('csrftoken');
                   {{detalles.content| safe}}
                 </p>
               </div>
-              
+ <!--Area de los comentarios-->
+
+
+ <h3 id="comments">
+  Comentarios sobre este vendedor	</h3>
+
+<div class="navigation">
+  <div class="alignleft"></div>
+  <div class="alignright"></div>
+</div>
+
+<ol class="commentlist">
+  {% if comentarios %}
+  {% for comment in comentarios%}
+
+
+ <div class="card">
+  <div class="card-header">
+    {{comment.autores}} Dice:
+  </div>
+  <a href="">  {{comment.created}}</a>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>{{comment.texto}}</p>
+      <footer class="blockquote-footer">Calificacion <cite title="Source Title">{{comment.calificacion}}</cite></footer>
+    </blockquote>
+  </div>
+</div>
+ {% endfor %}
+ {% else %}
+ <div class="card">
+  <div class="card-header">
+    Comentarios
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>Aun no tenemos comentarios para este usuario.</p>
+      <footer class="blockquote-footer">Agrega algo <cite title="Source Title">para el</cite></footer>
+    </blockquote>
+  </div>
+</div>
+ {% endif %}
+ </li>
+ </ol>
+  
+
+
+
+
+              <li><a class="btn btn-danger " href="{% url 'comentario-create' detalles.id user.id %}">agrega tu comentario sobre el usuario</a></li>
                 
               <div class="swiper-pagination"></div>
             </div>
@@ -86,6 +139,8 @@ var csrftoken = token('csrftoken');
                 <div class="card-body">
                   <h5 class="card-title"><a href="{% url 'blog:detalles_post' x.id %}">{{x.titulo}}</a></h5>
                   <p class="card-text">{{x.descripcion}} </p>
+
+                  
                 </div>
               </div>
             </div>
@@ -111,43 +166,50 @@ var csrftoken = token('csrftoken');
                 <li><strong>description</strong>: {{detalles.descripcion}}</li>
                 <li><strong>Autor</strong>: <a href="{% url 'blog:detalles-autor' detalles.autor.id %}">{{detalles.autor}}</a></li>
                 <li><strong>Project URL</strong>: <a href="#">crear un  dato par git</a></li>
+                <li><strong>Precio</strong>: {{detalles.precio}}</li>
                 <li></li>
                 <li><div id="paypal-button-container"></div>
-
+                {% if solicitud %}
                   <script src="https://www.paypal.com/sdk/js?client-id=Af6Xi9WXzy-aPWSKygyMggcqCk8aEzo-COV2FmnD_SYV0nxjeutJ-7azGumtFLxwb4JVlHN-RGuQIK-4"></script>
                   </script>
-              
+
                   <script>
-                      paypal.Buttons({
-                        createOrder: function(data, actions) {
-                          // This function sets up the details of the transaction, including the amount and line item details.
-                          return actions.order.create({
-                            purchase_units: [{
-                              amount: {
-                                value: '100.00'
-                              }
-                            }]
-                          });
-                        },
-                        onApprove: function(data) {
-                          return fetch('/pago/', {
-                              method: 'POST',
-                              headers: {
-                              'content-type': 'application/json',
-                              'X-CSRFToken': csrftoken,
-                              },
-                              body: JSON.stringify({
-                              orderID: data.orderID
-                              })
-                          }).then(function(res) {
-                              return res.json();
-                          }).then(function(details) {
-                              alert(details.mensaje);
-                          })
-                        }
-                      }).render('#paypal-button-container');
-                      //This function displays Smart Payment Buttons on your web page.
-                    </script></li>
+                    paypal.Buttons({
+                      createOrder: function(data, actions) {
+                        // This function sets up the details of the transaction, including the amount and line item details.
+                        return actions.order.create({
+                          purchase_units: [{
+                            amount: {
+                              value: '100.00'
+                            }
+                          }]
+                        });
+                      },
+                      onApprove: function(data) {
+                        return fetch('/pago/', {
+                            method: 'POST',
+                            headers: {
+                            'content-type': 'application/json',
+                            'X-CSRFToken': csrftoken,
+                            },
+                            body: JSON.stringify({
+                            orderID: data.orderID
+                            })
+                        }).then(function(res) {
+                            return res.json();
+                        }).then(function(details) {
+                            alert(details.mensaje);
+                        })
+                      }
+                    }).render('#paypal-button-container');
+                    //This function displays Smart Payment Buttons on your web page.
+                  </script>
+                {% else %}
+                <a class="btn btn-danger " href="{% url 'blog:solicitar-servicio' detalles.id detalles.autor.id %}">Solicita este servicio</a></li>
+                {% endif %}
+
+              
+                 </li>
               </ul>
             </div>
             
@@ -161,6 +223,20 @@ var csrftoken = token('csrftoken');
     </section><!-- End Portfolio Details Section -->
   </section>
 
+  
   </main><!-- End #main -->
+  <div class="modal fade" id="creacion" role="dialog"></div>
 
   {% endblock body %}
+  
+  {% block scripts %}
+
+  <script type="text/javascript">
+   function abrir_modal_creacion(url){
+     $('#creacion').load(url, function(){
+       $(this).modal('show');
+     });
+   }
+  </script>
+
+    {% endblock scripts %}

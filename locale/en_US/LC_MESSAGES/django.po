@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-05 19:46-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\ProyectoIntegrador\settings.py:158
+msgid "Espanish"
+msgstr ""
+
+#: .\ProyectoIntegrador\settings.py:159
+msgid "English"
+msgstr ""
+
+#: .\principalApp\templates\inicio\index.html:85
+#: .\principalApp\templates\inicio\index.html:222
+msgid "Inicio"
+msgstr "Home"
+
+#: .\principalApp\templates\inicio\index.html:87
+msgid "Servicios"
+msgstr "Services"
+
+#: .\principalApp\templates\inicio\index.html:91
+msgid "Contactanos"
+msgstr "Contact"
+
+#: .\principalApp\templates\inicio\index.html:92
+msgid "Acerca"
+msgstr "About"
+
+#: .\principalApp\templates\inicio\index.html:96
+#, fuzzy
+#| msgid "Mi perfil"
+msgid "Mi Perfil"
+msgstr "my profile"
+
+#: .\principalApp\templates\inicio\index.html:100
+msgid "Mi perfil"
+msgstr "my profile"
+
+#: .\principalApp\templates\inicio\index.html:102
+msgid "Editar tu perfil"
+msgstr "Edit your Profile"
+
+#: .\principalApp\templates\inicio\index.html:108
+msgid "Mis publicaciones"
+msgstr "My publications"
+
+#: .\principalApp\templates\inicio\index.html:110
+msgid "Listar post"
+msgstr "list post"
+
+#: .\principalApp\templates\inicio\index.html:111
+msgid "Crear post"
+msgstr "Create post"
+
+#: .\principalApp\templates\inicio\index.html:116
+msgid "Conviertete en vendedor"
+msgstr "Become a seller"
+
+#: .\principalApp\templates\inicio\index.html:126
+msgid "Cerrar sesión"
+msgstr "Sign off"
+
+#: .\principalApp\templates\inicio\index.html:130
+#: .\principalApp\templates\inicio\index.html:164
+msgid "Inicia sesión"
+msgstr "Log in"
+
+#: .\principalApp\templates\inicio\index.html:153
+msgid "preparate para tu futuro"
+msgstr "prepare for your future"
+
+#: .\principalApp\templates\inicio\index.html:187
+msgid "Universidad de Cundinamarca"
+msgstr "Universidad de Cundinamarca"
+
+#: .\principalApp\templates\inicio\index.html:188
+msgid "Facatativa"
+msgstr "Facatativa"
+
+#: .\principalApp\templates\inicio\index.html:212
+msgid "Telefono:"
+msgstr "phone"
+
+#: .\principalApp\templates\inicio\index.html:213
+msgid "Correo:"
+msgstr "Email"
+
+#: .\principalApp\templates\inicio\index.html:227
+msgid "Politicas Privacidad"
+msgstr "Privacy Policies"

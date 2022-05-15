@@ -19,6 +19,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    path(r'^i18n/', include('django.conf.urls.i18n')),
     path('admin/', admin.site.urls),
     path('', include(('principalApp.urls','inicio'))),
     path('post/', include(('publicacionesApp.urls','blog'))),
@@ -26,6 +27,7 @@ urlpatterns = [
     path('formulario/', include(('FormularioApp.urls','formularios'))),
     path('', include('pagosApp.urls')),
     path('comentarios/', include('comentariosApp.api.urls')),
+    path('contactanos/', include(('contactoApp.urls','contactanos'))),
     path('accounts/login/',LoginView.as_view(template_name='usuarios/login.html'), name='login'),
     path('accounts/logout/',LogoutView.as_view(template_name='inicio/index.html'), name='logout'),
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name='autenticacion/password-reset.html'), name='password_reset'),

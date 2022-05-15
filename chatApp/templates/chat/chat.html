@@ -5,13 +5,12 @@
 
 
 {% block body %}
-<div class="row">
-    <div class="col-md-8 text-start mb-5 mt-5">
-      <h3 class=" z-index-1 position-relative">chat</h3>
-      
-    </div>
+<br>
+<div class=" section-title">
+    <h2>Chat</h2>
+    
   </div>
-<nav class="blue lighten-3">
+<nav class="black lighten-3">
     <div class="nav-wrapper container">
       <a href="#" class="brand-logo">Chat</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -25,17 +24,18 @@
         <div class="col s3">
         <div class="card">
             <div class="collection">
-                {% for user in users %}
-                <a href="{% url 'chats-index:chat' request.user.id user.id %}" id="user{{ user.id }}" class="collection-item row">
+                
+                <a href="{% url 'chats-index:chat' request.user.id user.id %}" id="user{{ users.id }}" class="collection-item row">
                     <div class="card-icon">
                         <img src="https://cdn-icons-png.flaticon.com/512/61/61516.png"  border-radius="50"  width="50"   alt="">
                       </div>
                     
                     <div class="col s8">
-                    <span class="title" style="font-weight: bolder">{{ user.username }}</span>
+                    <span class="title" style="font-weight: bolder">{{ users.username }}</span>
                     </div>
+                    
                 </a>
-                {% endfor %}
+                
             </div>
         </div>
         </div>
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div class="col s1" style="line-height: 80px">
-                        <button class="btn btn-floating blue lighten-2 waves-effect waves-light"><i class="material-icons">send</i></button>
+                        <button class="btn btn-floating black lighten-2 waves-effect waves-light"><i class="material-icons">send</i></button>
                     </div>
                 </div>
             </form>

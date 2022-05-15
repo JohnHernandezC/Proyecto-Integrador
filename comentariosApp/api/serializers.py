@@ -6,4 +6,4 @@ from comentariosApp.models import Comentarios
 class ComentarioSerializer(serializers.ModelSerializer):
     class Meta:
         model=Comentarios
-        exclude=['autores']
+        exclude=['autores','publicacion']

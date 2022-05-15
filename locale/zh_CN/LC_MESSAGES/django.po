@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-05 19:46-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\ProyectoIntegrador\settings.py:158
+#, fuzzy
+#| msgid "spanish"
+msgid "Espanish"
+msgstr "西班牙语"
+
+#: .\ProyectoIntegrador\settings.py:159
+msgid "English"
+msgstr "英语"
+
+#: .\principalApp\templates\inicio\index.html:85
+#: .\principalApp\templates\inicio\index.html:222
+msgid "Inicio"
+msgstr "主页"
+
+#: .\principalApp\templates\inicio\index.html:87
+msgid "Servicios"
+msgstr "服务"
+
+#: .\principalApp\templates\inicio\index.html:91
+msgid "Contactanos"
+msgstr "联系我们"
+
+#: .\principalApp\templates\inicio\index.html:92
+msgid "Acerca"
+msgstr "关于"
+
+#: .\principalApp\templates\inicio\index.html:96
+#, fuzzy
+#| msgid "Mi perfil"
+msgid "Mi Perfil"
+msgstr "我的简历"
+
+#: .\principalApp\templates\inicio\index.html:100
+msgid "Mi perfil"
+msgstr "我的简历"
+
+#: .\principalApp\templates\inicio\index.html:102
+msgid "Editar tu perfil"
+msgstr "编辑您的个人资料"
+
+#: .\principalApp\templates\inicio\index.html:108
+msgid "Mis publicaciones"
+msgstr "我的帖子"
+
+#: .\principalApp\templates\inicio\index.html:110
+msgid "Listar post"
+msgstr "列出帖子"
+
+#: .\principalApp\templates\inicio\index.html:111
+msgid "Crear post"
+msgstr "创建帖子"
+
+#: .\principalApp\templates\inicio\index.html:116
+msgid "Conviertete en vendedor"
+msgstr "成为卖家"
+
+#: .\principalApp\templates\inicio\index.html:126
+msgid "Cerrar sesión"
+msgstr "登出"
+
+#: .\principalApp\templates\inicio\index.html:130
+#: .\principalApp\templates\inicio\index.html:164
+msgid "Inicia sesión"
+msgstr "登录"
+
+#: .\principalApp\templates\inicio\index.html:153
+msgid "preparate para tu futuro"
+msgstr "为你的未来做准备"
+
+#: .\principalApp\templates\inicio\index.html:187
+msgid "Universidad de Cundinamarca"
+msgstr "昆迪纳马卡大学"
+
+#: .\principalApp\templates\inicio\index.html:188
+msgid "Facatativa"
+msgstr "副词"
+
+#: .\principalApp\templates\inicio\index.html:212
+msgid "Telefono:"
+msgstr "电话"
+
+#: .\principalApp\templates\inicio\index.html:213
+msgid "Correo:"
+msgstr "电子邮件"
+
+#: .\principalApp\templates\inicio\index.html:227
+msgid "Politicas Privacidad"
+msgstr "隐私政策"
+
+#~ msgid "Chinese"
+#~ msgstr "中国人"

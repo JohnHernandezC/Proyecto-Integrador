@@ -40,6 +40,8 @@ class Post (models.Model):
     imagen = models.ImageField('Imagen de post', max_length=200,blank = True,null = True)
     autor= models.ForeignKey(Autor,on_delete=models.CASCADE)
     categoria= models.ForeignKey(Categoria,on_delete=models.CASCADE)
+    precio=models.FloatField()
+    disponibilidad=models.BooleanField(default=True)
     estado = models.BooleanField('Publicado/No publicado',default=True)
     created = models.DateTimeField(auto_now_add=True)
     
@@ -49,4 +51,15 @@ class Post (models.Model):
     def __str__(self):
         return self.titulo 
 
-
+class solicitudes(models.Model):
+    descripcion= models.TextField(max_length=500)
+    aceptado= models.BooleanField(default=False)
+    postS= models.ForeignKey(Post, on_delete=models.CASCADE)
+    usuario=models.IntegerField()
+    ofertante=models.IntegerField()
+    class Meta:
+        verbose_name = ('Solicitud')
+        verbose_name_plural = ('Solicitudes')
+    def __str__(self):
+        return str(self.postS)
+    

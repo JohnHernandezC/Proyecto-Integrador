@@ -3,12 +3,13 @@ from django.http import HttpResponse, JsonResponse
 from paypalcheckoutsdk.core import PayPalHttpClient, SandboxEnvironment
 from paypalcheckoutsdk.orders import OrdersGetRequest, OrdersCaptureRequest
 from .models import *
+from publicacionesApp.models import *
 
 import sys, json
 
 
 def pago(request):
-    curso = Producto.objects.get(pk=1)
+    curso = Post.objects.get(pk=2)
     data = json.loads(request.body)
     order_id = data['orderID']
 
@@ -19,26 +20,26 @@ def pago(request):
     if detalle_precio == curso.precio:
         trx = CaptureOrder().capture_order(order_id, debug=True)
         pedido = Compra(
-            id= trx.result.id, 
+            id= request.user.pk, 
             estado= trx.result.status, 
             codigo_estado= trx.status_code, 
-            producto= Producto.objects.get(pk=1),
+            producto= Post.objects.get(pk=2),
             total_de_la_compra = trx.result.purchase_units[0].payments.captures[0].amount.value, 
-            nombre_cliente= trx.result.payer.name.given_name, 
-            apellido_cliente= trx.result.payer.name.surname, 
-            correo_cliente= trx.result.payer.email_address, 
+            nombre_cliente= request.user.nombres, 
+            apellido_cliente= request.user.apellidos, 
+            correo_cliente= request.user.email, 
             direccion_cliente= trx.result.purchase_units[0].shipping.address.address_line_1)
         pedido.save()
 
         data = {
             "id": f"{trx.result.id}",
             "nombre_cliente": f"{trx.result.payer.name.given_name}",
-            "mensaje": "=D"
+            "mensaje": "pago realizado de manera correcta"
         }
         return JsonResponse(data)
     else:
         data = {
-            "mensaje": "Error =("
+            "mensaje": "Lo sentimos, no pudimos realizar el pago =("
         }
         return JsonResponse(data)
 

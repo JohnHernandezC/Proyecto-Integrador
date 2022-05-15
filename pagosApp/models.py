@@ -1,5 +1,7 @@
 from django.db import models
 
+from publicacionesApp.models import Post
+
 # Create your models here.
 
 class Producto(models.Model):
@@ -13,7 +15,7 @@ class Compra(models.Model):
     id = models.CharField(primary_key= True, max_length=100)
     estado = models.CharField(max_length=100)
     codigo_estado = models.CharField(max_length=100)
-    producto = models.ForeignKey(to=Producto, on_delete= models.SET_NULL, null = True)
+    producto = models.ForeignKey(to=Post, on_delete= models.SET_NULL, null = True)
     total_de_la_compra = models.DecimalField(max_digits=5 ,decimal_places= 2)
     nombre_cliente = models.CharField(max_length=100)
     apellido_cliente = models.CharField(max_length=100)

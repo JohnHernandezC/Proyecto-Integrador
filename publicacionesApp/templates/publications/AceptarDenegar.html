@@ -1,0 +1,47 @@
+{% extends 'inicio/index.html' %}
+{% load static %}
+{% block title %}  Mis publicaciones {% endblock title %}
+{% block body %}
+
+    <!-- ======= About Boxes Section ======= -->
+    <section id="about-boxes" class="about-boxes">
+        <div class="container" data-aos="fade-up">
+            <br>
+            <br>
+            <br>
+            
+          <div class="row">
+            {% if post %}
+            {% for i in post %}
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                
+              <div class="card">
+                <img src="{{i.postS.imagen.url}}" class="card-img-top" alt="...">
+                <div class="card-icon">
+                  <i class="ri-brush-4-line"></i>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">{{i.postS.titulo}}</a></h5>
+                  <h6>El usuario {{solicitante.nombres}}</h6>
+                  <p class="card-text">{{i.descripcion}}</p>
+                </div>
+                <a href="{% url 'blog:aceptar-solicitud' i.id %}" class="btn btn-primary">Aceptar</a>
+                <a href="{% url 'blog:denegar-solicitud' i.id %}" class="btn btn-danger">Denegar</a>
+                
+              </div>
+              
+        </div>
+        {% endfor %}
+        {%else%}
+        <h1>Aun no tines solicitudes :)</h1>
+
+        {% endif %}
+    </div>
+            
+            
+  
+        </div>
+      </section><!-- End About Boxes Section -->
+
+
+{% endblock body %}
