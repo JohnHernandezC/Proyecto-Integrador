@@ -81,3 +81,9 @@ class FormularioUsuario(forms.ModelForm):
             user.save()
         return user
     
+class PersonaForm(forms.ModelForm):
+    class Meta:
+        model=Usuario
+        fields=['is_userp']
+        
+    

@@ -100,7 +100,7 @@
                 <li class="dropdown"><a href="#"><span>{% trans 'Mi perfil' %}</span> <i class="bi bi-chevron-right"></i></a>
                   <ul>
                     <li><a href="{% url 'usuarios:editarUsuario' request.user.id %}">{% trans 'Editar tu perfil' %}</a></li>
-                    <li><a href="#">Deep Drop Down 2</a></li>
+                    
                     
                   </ul>
                 </li>
@@ -114,7 +114,7 @@
                   </ul>
                 </li>
                 {% else %}
-                <li class="dropdown"><a href="#"><span>{% trans 'Conviertete en vendedor' %}</span> <i class="bi bi-chevron-right"></i></a>
+                <li class="dropdown"><a href="{% url 'usuarios:CambiarTipoUsuario' %}"><span>{% trans 'Conviertete en vendedor' %}</span> <i class="bi bi-chevron-right"></i></a>
                 {% endif %}
                 
                

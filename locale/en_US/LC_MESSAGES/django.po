@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-05 19:46-0500\n"
+"POT-Creation-Date: 2022-05-22 23:18-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,102 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\ProyectoIntegrador\settings.py:158
+#: .\ProyectoIntegrador\settings.py:160
 msgid "Espanish"
 msgstr ""
 
-#: .\ProyectoIntegrador\settings.py:159
+#: .\ProyectoIntegrador\settings.py:161
 msgid "English"
 msgstr ""
 
+#: .\contactoApp\templates\about\about.html:34
+msgid ""
+"Voluptatem dignissimos provident quasi corporis voluptates sit assumenda."
+msgstr ""
+"The most worthy provide pleasure, as if pleasures of the body were to be "
+"taken."
+
+#: .\contactoApp\templates\about\about.html:36
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod "
+msgstr "The pain is love itself"
+
+#: .\contactoApp\templates\about\about.html:39
+msgid " Ullamco laboris nisi ut aliquip ex ea commodo consequat."
+msgstr "No school can work except to achieve the objectives from it."
+
+#: .\contactoApp\templates\about\about.html:40
+msgid " Duis aute irure dolor in reprehenderit in voluptate velit."
+msgstr ""
+"But the pain in the film is injurious to the pleasure it wants to condemn."
+
+#: .\contactoApp\templates\about\about.html:41
+msgid " Voluptate repellendus pariatur reprehenderit corporis sint."
+msgstr ""
+"When pleasure is countered, manufacturers are to be condemned to the body."
+
+#: .\contactoApp\templates\about\about.html:42
+msgid ""
+"Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure "
+"dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu "
+"fugiat nulla pariatur."
+msgstr ""
+
+#: .\contactoApp\templates\about\about.html:45
+msgid ""
+" Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure "
+"dolor in reprehenderit in voluptate\n"
+"            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur "
+"sint occaecat cupidatat non proident, sunt in\n"
+"            culpa qui officia deserunt mollit anim id est laborum' "
+msgstr ""
+
+#: .\contactoApp\templates\about\about.html:68
+msgid "Mision"
+msgstr "Mission"
+
+#: .\contactoApp\templates\about\about.html:69
+msgid ""
+"Desarrollar  una aplicación web que permita inicialmente a estudiantes "
+"ofrecer servicios relacionados con sus carreras y de esta manera afianzar "
+"sus conocimientos y brindar un acercamiento a la experiencia de los entornos "
+"laborales."
+msgstr ""
+"Develop a web application that initially allows studentsoffer services "
+"related to their careers and thus strengthenhis knowledge and provide an "
+"approach to the experience of the environmentslabor."
+
+#: .\contactoApp\templates\about\about.html:80
+msgid "Plan"
+msgstr "Our Plan"
+
+#: .\contactoApp\templates\about\about.html:81
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut "
+"labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud "
+"exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+msgstr ""
+"Lorem ipsum pain sit amet, consectetur elit, sed do eiusmod tempor utwork et "
+"sorrow magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation "
+"ullamco laboris nisi ut aliquip ex ea commodo consequat."
+
+#: .\contactoApp\templates\about\about.html:92
+msgid " Vision"
+msgstr "Vision"
+
+#: .\contactoApp\templates\about\about.html:93
+msgid ""
+"Nuestra visión es adaptar los modelos de contratación de trabajadores "
+"independientes en una experiencia similar al comercio electrónico además de "
+"permitir que nuestros vendedores y compradores puedan tener un sitio "
+"centralizado donde obtener lo que necesitan. "
+msgstr ""
+"Our vision is to adapt the hiring models of workersindependents in an "
+"experience similar to e-commerce in addition to allow our sellers and buyers "
+"to have a sitecentralized where to get what they need."
+
 #: .\principalApp\templates\inicio\index.html:85
-#: .\principalApp\templates\inicio\index.html:222
+#: .\principalApp\templates\inicio\index.html:223
 msgid "Inicio"
 msgstr "Home"
 
@@ -36,71 +122,79 @@ msgstr "Services"
 
 #: .\principalApp\templates\inicio\index.html:91
 msgid "Contactanos"
-msgstr "Contact"
+msgstr "Contact us"
 
 #: .\principalApp\templates\inicio\index.html:92
 msgid "Acerca"
 msgstr "About"
 
 #: .\principalApp\templates\inicio\index.html:96
-#, fuzzy
-#| msgid "Mi perfil"
 msgid "Mi Perfil"
-msgstr "my profile"
+msgstr ""
 
 #: .\principalApp\templates\inicio\index.html:100
 msgid "Mi perfil"
-msgstr "my profile"
+msgstr "My profile"
 
 #: .\principalApp\templates\inicio\index.html:102
 msgid "Editar tu perfil"
-msgstr "Edit your Profile"
+msgstr "Edit your profile"
 
 #: .\principalApp\templates\inicio\index.html:108
 msgid "Mis publicaciones"
-msgstr "My publications"
+msgstr "my posts"
 
 #: .\principalApp\templates\inicio\index.html:110
 msgid "Listar post"
-msgstr "list post"
+msgstr "List post"
 
 #: .\principalApp\templates\inicio\index.html:111
 msgid "Crear post"
-msgstr "Create post"
+msgstr "Create Post"
 
-#: .\principalApp\templates\inicio\index.html:116
+#: .\principalApp\templates\inicio\index.html:112
+msgid "Solicitudes"
+msgstr "Reques"
+
+#: .\principalApp\templates\inicio\index.html:117
 msgid "Conviertete en vendedor"
 msgstr "Become a seller"
 
-#: .\principalApp\templates\inicio\index.html:126
+#: .\principalApp\templates\inicio\index.html:127
 msgid "Cerrar sesión"
 msgstr "Sign off"
 
-#: .\principalApp\templates\inicio\index.html:130
-#: .\principalApp\templates\inicio\index.html:164
+#: .\principalApp\templates\inicio\index.html:131
+#: .\principalApp\templates\inicio\index.html:165
 msgid "Inicia sesión"
+msgstr ""
+
+#: .\principalApp\templates\inicio\index.html:154
+msgid "preparate para tu futuro"
 msgstr "Log in"
 
-#: .\principalApp\templates\inicio\index.html:153
-msgid "preparate para tu futuro"
-msgstr "prepare for your future"
-
-#: .\principalApp\templates\inicio\index.html:187
-msgid "Universidad de Cundinamarca"
-msgstr "Universidad de Cundinamarca"
-
 #: .\principalApp\templates\inicio\index.html:188
-msgid "Facatativa"
-msgstr "Facatativa"
+msgid "Universidad de Cundinamarca"
+msgstr ""
 
-#: .\principalApp\templates\inicio\index.html:212
-msgid "Telefono:"
-msgstr "phone"
+#: .\principalApp\templates\inicio\index.html:189
+msgid "Facatativa"
+msgstr ""
 
 #: .\principalApp\templates\inicio\index.html:213
+msgid "Telefono:"
+msgstr "Phone:"
+
+#: .\principalApp\templates\inicio\index.html:214
 msgid "Correo:"
 msgstr "Email"
 
-#: .\principalApp\templates\inicio\index.html:227
+#: .\principalApp\templates\inicio\index.html:228
 msgid "Politicas Privacidad"
 msgstr "Privacy Policies"
+
+#~ msgid "Español"
+#~ msgstr "spanish"
+
+#~ msgid "Ingles"
+#~ msgstr "English"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-05 19:46-0500\n"
+"POT-Creation-Date: 2022-05-22 22:05-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\ProyectoIntegrador\settings.py:158
+#: .\ProyectoIntegrador\settings.py:160
 #, fuzzy
 #| msgid "spanish"
 msgid "Espanish"
 msgstr "西班牙语"
 
-#: .\ProyectoIntegrador\settings.py:159
+#: .\ProyectoIntegrador\settings.py:161
 msgid "English"
 msgstr "英语"
 
 #: .\principalApp\templates\inicio\index.html:85
-#: .\principalApp\templates\inicio\index.html:222
+#: .\principalApp\templates\inicio\index.html:223
 msgid "Inicio"
 msgstr "主页"
 
@@ -45,8 +45,6 @@ msgid "Acerca"
 msgstr "关于"
 
 #: .\principalApp\templates\inicio\index.html:96
-#, fuzzy
-#| msgid "Mi perfil"
 msgid "Mi Perfil"
 msgstr "我的简历"
 
@@ -70,40 +68,44 @@ msgstr "列出帖子"
 msgid "Crear post"
 msgstr "创建帖子"
 
-#: .\principalApp\templates\inicio\index.html:116
+#: .\principalApp\templates\inicio\index.html:112
+msgid "Solicitudes"
+msgstr "要求"
+
+#: .\principalApp\templates\inicio\index.html:117
 msgid "Conviertete en vendedor"
 msgstr "成为卖家"
 
-#: .\principalApp\templates\inicio\index.html:126
+#: .\principalApp\templates\inicio\index.html:127
 msgid "Cerrar sesión"
 msgstr "登出"
 
-#: .\principalApp\templates\inicio\index.html:130
-#: .\principalApp\templates\inicio\index.html:164
+#: .\principalApp\templates\inicio\index.html:131
+#: .\principalApp\templates\inicio\index.html:165
 msgid "Inicia sesión"
 msgstr "登录"
 
-#: .\principalApp\templates\inicio\index.html:153
+#: .\principalApp\templates\inicio\index.html:154
 msgid "preparate para tu futuro"
 msgstr "为你的未来做准备"
 
-#: .\principalApp\templates\inicio\index.html:187
+#: .\principalApp\templates\inicio\index.html:188
 msgid "Universidad de Cundinamarca"
 msgstr "昆迪纳马卡大学"
 
-#: .\principalApp\templates\inicio\index.html:188
+#: .\principalApp\templates\inicio\index.html:189
 msgid "Facatativa"
 msgstr "副词"
 
-#: .\principalApp\templates\inicio\index.html:212
+#: .\principalApp\templates\inicio\index.html:213
 msgid "Telefono:"
 msgstr "电话"
 
-#: .\principalApp\templates\inicio\index.html:213
+#: .\principalApp\templates\inicio\index.html:214
 msgid "Correo:"
 msgstr "电子邮件"
 
-#: .\principalApp\templates\inicio\index.html:227
+#: .\principalApp\templates\inicio\index.html:228
 msgid "Politicas Privacidad"
 msgstr "隐私政策"
 

@@ -1,10 +1,30 @@
 {% extends 'inicio/index.html' %} {% load static %} {% block title %}
-publicaciones {% endblock title %} {% block body %} {% if error %}
+publicaciones {% endblock title %} {% block body %} 
+
+{% if error %}
 <h1>{{ error }}</h1>
 {% else %}
-<div class="row">
-  <div class="col-md-8 text-start mb-5 mt-5"></div>
-</div>
+<section class="pb-5 position-relative bg-gradient-g mx-n3">
+  <div class="container">
+    <div class="row"></div>
+  </div>
+  <br>
+</section>
+<br>
+<br>
+<span class="mask bg-gradient-red opacity-6"></span>
+<div class="container my-auto">
+  <div class="row">
+    <div class="col-lg-4 col-md-8 col-12 mx-auto">
+      <div class="card z-index-0 fadeIn3 fadeInBottom">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+          <div
+            class="bg-gradient-primary-shadow-primary border-radius-lg py-3 pe-1"
+          >
+            <h4 class="text-black font-weight-bolder text-center mt-2 mb-0">
+              Registrate tu publicacion
+            </h4>
+            
 <form method="POST" enctype="multipart/form-data">
   <!--para que los datos no se visualicen al ser enviados por  medio de la url-->
   <table>
@@ -13,4 +33,11 @@ publicaciones {% endblock title %} {% block body %} {% if error %}
   <button type="submit">Enviar</button>
   {% csrf_token %}
 </form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 {% endif %} {% endblock body %}
