@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path('',home,name='general-post'),
-    path('<int:id>/',detalles,name='detalles_post'),
+    path('<int:id>/',login_required(detalles),name='detalles_post'),
     path('autor/<int:id>',autor,name='detalles-autor'),
     path('crear/',login_required(crearPost),name='crear-post'),
     path('listar/',login_required(listarMisPost),name='listar-post'),
